@@ -15,15 +15,12 @@ int main() {
 		int dealer_first_card = rand() % 10 + 1;
 		int player_second_card = rand() % 10 + 1;
 		int dealer_second_card = rand() % 10 + 1;
-		
-		
 		int player_total = 0;
 		int dealer_total = 0;
 		bool player_stay = false;
 		bool dealer_stay = false;
 		bool player_bust = false;
 		bool dealer_bust = false;
-		bool game = true;
 		char stay_hit = 'a';
 		char yes_no = 'a';
 		
@@ -40,7 +37,7 @@ int main() {
 			while ((player_stay == false) && (player_bust == false)) {
 				cout << "Do you want to stay or hit? (s or h)" << endl;
 				cin >> stay_hit;
-				
+				//Need player_hit declared inside while statement in order for it to reset when used
 				int player_hit = rand() % 10 + 1;
 				
 				if (stay_hit == 'h'){
@@ -79,7 +76,7 @@ int main() {
 						dealer_total = dealer_first_card + dealer_second_card;
 						cout << "For a total of " << dealer_total << endl;
 						while (dealer_total <= 16){
-							
+							//Need dealer_hit declared inside while statement in order for it to reset when used
 							int dealer_hit = rand() % 10 + 1;
 							
 							cout << "Dealer hits dealer's next card is a " << dealer_hit << endl;
