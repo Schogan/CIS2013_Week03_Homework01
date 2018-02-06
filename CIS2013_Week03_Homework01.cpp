@@ -83,16 +83,17 @@ int main() {
 							dealer_total = dealer_total + dealer_hit;
 							cout << " for a new total of " << dealer_total << endl;
 						}
-						if (dealer_total >= 17){
-							cout << "Dealer Stays." << endl;
-							dealer_stay = true;
-						}
 						if(dealer_total > 21){
 							cout << "Dealer busts YOU WIN!!!"<< endl;
 							dealer_bust = true;
 							cout << "Would you like to play again? (y or n)" << endl;
 							cin >> yes_no;
 						}
+						if (dealer_total >= 17){
+							cout << "Dealer Stays." << endl;
+							dealer_stay = true;
+						}
+						
 					
 				}	
 				
