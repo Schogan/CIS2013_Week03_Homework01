@@ -15,8 +15,8 @@ int main() {
 		int dealer_first_card = rand() % 10 + 1;
 		int player_second_card = rand() % 10 + 1;
 		int dealer_second_card = rand() % 10 + 1;
-		int player_hit = rand() % 10 + 1;
-		int dealer_hit = rand() % 10 + 1;
+		
+		
 		int player_total = 0;
 		int dealer_total = 0;
 		bool player_stay = false;
@@ -40,6 +40,9 @@ int main() {
 			while ((player_stay == false) && (player_bust == false)) {
 				cout << "Do you want to stay or hit? (s or h)" << endl;
 				cin >> stay_hit;
+				
+				int player_hit = rand() % 10 + 1;
+				
 				if (stay_hit == 'h'){
 					cout << "You chose to hit your new card is a " << player_hit << endl;
 					player_total = player_total + player_hit;
@@ -71,11 +74,14 @@ int main() {
 			// Dealer's turn
 			if ((player_stay == true) && (player_bust == false)) {
 				while ((dealer_stay == false) && (dealer_bust == false)){
-					while (dealer_total <= 16){
+					
 						cout << "Dealer's next card is " << dealer_second_card << endl;
 						dealer_total = dealer_first_card + dealer_second_card;
 						cout << "For a total of " << dealer_total << endl;
-						if (dealer_total <= 16){
+						while (dealer_total <= 16){
+							
+							int dealer_hit = rand() % 10 + 1;
+							
 							cout << "Dealer hits dealer's next card is a " << dealer_hit << endl;
 							dealer_total = dealer_total + dealer_hit;
 							cout << " for a new total of " << dealer_total << endl;
@@ -84,11 +90,13 @@ int main() {
 							cout << "Dealer Stays." << endl;
 							dealer_stay = true;
 						}
-						if (dealer_total > 21){
+						if(dealer_total > 21){
 							cout << "Dealer busts YOU WIN!!!"<< endl;
 							dealer_bust = true;
+							cout << "Would you like to play again? (y or n)" << endl;
+							cin >> yes_no;
 						}
-					}
+					
 				}	
 				
 			}
@@ -100,6 +108,11 @@ int main() {
 					cout << "Would you like to play again? y or n" << endl;
 					cin >> yes_no;
 					}
+				if (player_total > dealer_total){
+					cout << "!!!YOU WIN!!!" << endl;
+					cout << "Would you like to play again? y or n" << endl;
+					cin >> yes_no;
+				}
 			}
 			if (yes_no == 'n'){
 				keep_playing = false;
